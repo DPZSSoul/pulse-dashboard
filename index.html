@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pulse — Analytics Dashboard</title>
+    <meta name="description" content="Responsive, accessible analytics dashboard with charts and tables.">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Pulse — Analytics Dashboard">
+    <meta property="og:description" content="Responsive, accessible analytics dashboard with charts and tables.">
+    <meta property="og:image" content="/og-image.jpg">
+    <meta property="og:url" content="https://pulse-analytics.com">
+    <meta property="og:type" content="website">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Pulse — Analytics Dashboard">
+    <meta name="twitter:description" content="Responsive, accessible analytics dashboard with charts and tables.">
+    <meta name="twitter:image" content="/og-image.jpg">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Chart.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
+    
+    <!-- Main Script -->
+    <script src="script.js" type="module" defer></script>
+</head>
+<body>
+    <!-- Skip to content link -->
+    <a href="#main" class="skip-link">Skip to content</a>
+    
+    <!-- Login Screen -->
+    <div id="login-screen" class="login-screen">
+        <div class="login-container">
+            <div class="login-header">
+                <h1 class="login-title">
+                    <span class="pulse-icon">📊</span>
+                    Pulse
+                </h1>
+                <p class="login-subtitle">Analytics Dashboard</p>
+            </div>
+            
+            <form class="login-form" id="login-form">
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required placeholder="Enter your email">
+                </div>
+                
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" required placeholder="Enter your password">
+                </div>
+                
+                <button type="submit" class="login-btn">Sign In</button>
+            </form>
+            
+            <div class="login-footer">
+                <p>Demo credentials: admin@pulse.com / password</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Dashboard -->
+    <div id="dashboard" class="dashboard hidden">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-left">
+                <button class="sidebar-toggle" aria-label="Toggle sidebar" aria-expanded="false">
+                    <span class="hamburger"></span>
+                </button>
+                <h1 class="header-title">
+                    <span class="pulse-icon">📊</span>
+                    Pulse
+                </h1>
+            </div>
+            
+            <div class="header-right">
+                <div class="search-container">
+                    <input type="search" class="search-input" placeholder="Search..." aria-label="Search">
+                    <button class="search-btn" aria-label="Search">
+                        <span class="search-icon">🔍</span>
+                    </button>
+                </div>
+                
+                <div class="user-menu">
+                    <button class="user-avatar" aria-label="User menu">
+                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23e6f0ff'%3E%3Cpath d='M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z'/%3E%3C/svg%3E" alt="" width="32" height="32" loading="lazy" decoding="async">
+                    </button>
+                </div>
+            </div>
+        </header>
+        
+        <!-- Sidebar -->
+        <nav class="sidebar" aria-label="Main navigation">
+            <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navLinks" type="button"><span></span><span></span><span></span></button>
+<ul class="nav-list">
+                <li>
+                    <a href="#dashboard" class="nav-link active" aria-current="page">
+                        <span class="nav-icon">📊</span>
+                        <span class="nav-text">Dashboard</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#reports" class="nav-link">
+                        <span class="nav-icon">📈</span>
+                        <span class="nav-text">Reports</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#users" class="nav-link">
+                        <span class="nav-icon">👥</span>
+                        <span class="nav-text">Users</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#settings" class="nav-link">
+                        <span class="nav-icon">⚙️</span>
+                        <span class="nav-text">Settings</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        
+        <!-- Main Content -->
+        <main id="main" class="main-content">
+            <!-- Summary Cards -->
+            <section class="summary-section">
+                <h2 class="section-title">Overview</h2>
+                <div class="summary-grid">
+                    <div class="summary-card">
+                        <div class="summary-header">
+                            <h3 class="summary-title">Revenue</h3>
+                            <span class="summary-icon">💰</span>
+                        </div>
+                        <div class="summary-value">$124,563</div>
+                        <div class="summary-trend positive">
+                            <span class="trend-icon">↗</span>
+                            <span class="trend-value">+12.5%</span>
+                            <span class="trend-period">vs last month</span>
+                        </div>
+                    </div>
+                    
+                    <div class="summary-card">
+                        <div class="summary-header">
+                            <h3 class="summary-title">Orders</h3>
+                            <span class="summary-icon">📦</span>
+                        </div>
+                        <div class="summary-value">1,847</div>
+                        <div class="summary-trend positive">
+                            <span class="trend-icon">↗</span>
+                            <span class="trend-value">+8.2%</span>
+                            <span class="trend-period">vs last month</span>
+                        </div>
+                    </div>
+                    
+                    <div class="summary-card">
+                        <div class="summary-header">
+                            <h3 class="summary-title">Active Users</h3>
+                            <span class="summary-icon">👤</span>
+                        </div>
+                        <div class="summary-value">12,847</div>
+                        <div class="summary-trend negative">
+                            <span class="trend-icon">↘</span>
+                            <span class="trend-value">-2.1%</span>
+                            <span class="trend-period">vs last month</span>
+                        </div>
+                    </div>
+                    
+                    <div class="summary-card">
+                        <div class="summary-header">
+                            <h3 class="summary-title">Conversion</h3>
+                            <span class="summary-icon">🎯</span>
+                        </div>
+                        <div class="summary-value">3.24%</div>
+                        <div class="summary-trend positive">
+                            <span class="trend-icon">↗</span>
+                            <span class="trend-value">+0.8%</span>
+                            <span class="trend-period">vs last month</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Charts Section -->
+            <section class="charts-section">
+                <h2 class="section-title">Analytics</h2>
+                <div class="charts-grid">
+                    <div class="chart-container">
+                        <h3 class="chart-title">Revenue Trend</h3>
+                        <canvas id="revenueChart" width="400" height="200"></canvas>
+                    </div>
+                    
+                    <div class="chart-container">
+                        <h3 class="chart-title">Orders by Category</h3>
+                        <canvas id="ordersChart" width="400" height="200"></canvas>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Recent Orders Table -->
+            <section class="orders-section">
+                <div class="orders-header">
+                    <h2 class="section-title">Recent Orders</h2>
+                    <div class="table-controls">
+                        <div class="search-container">
+                            <input type="search" class="table-search" placeholder="Search orders..." aria-label="Search orders">
+                        </div>
+                        <div class="pagination-info">
+                            <span id="pagination-info">Showing 1-10 of 50 orders</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="table-container">
+                    <table class="orders-table" id="orders-table">
+                        <thead>
+                            <tr>
+                                <th scope="col" class="sortable" data-sort="id">
+                                    Order ID
+                                    <span class="sort-icon">↕</span>
+                                </th>
+                                <th scope="col" class="sortable" data-sort="customer">
+                                    Customer
+                                    <span class="sort-icon">↕</span>
+                                </th>
+                                <th scope="col" class="sortable" data-sort="product">
+                                    Product
+                                    <span class="sort-icon">↕</span>
+                                </th>
+                                <th scope="col" class="sortable" data-sort="amount">
+                                    Amount
+                                    <span class="sort-icon">↕</span>
+                                </th>
+                                <th scope="col" class="sortable" data-sort="status">
+                                    Status
+                                    <span class="sort-icon">↕</span>
+                                </th>
+                                <th scope="col" class="sortable" data-sort="date">
+                                    Date
+                                    <span class="sort-icon">↕</span>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody id="orders-tbody">
+                            <!-- Table rows will be populated by JavaScript -->
+                        </tbody>
+                    </table>
+                    
+                    <!-- Empty state -->
+                    <div id="empty-state" class="empty-state hidden">
+                        <div class="empty-icon">📋</div>
+                        <h3>No orders found</h3>
+                        <p>Try adjusting your search criteria</p>
+                    </div>
+                </div>
+                
+                <div class="pagination">
+                    <button class="pagination-btn" id="prev-btn" disabled>
+                        <span class="pagination-icon">←</span>
+                        Previous
+                    </button>
+                    
+                    <div class="pagination-pages" id="pagination-pages">
+                        <!-- Page numbers will be populated by JavaScript -->
+                    </div>
+                    
+                    <button class="pagination-btn" id="next-btn">
+                        Next
+                        <span class="pagination-icon">→</span>
+                    </button>
+                </div>
+            </section>
+        </main>
+    </div>
+</body>
+</html>
